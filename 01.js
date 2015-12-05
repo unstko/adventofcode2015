@@ -3,7 +3,7 @@
 function calc(input) {
   var floor = 0;
   var pos = 0;
-  for (var i = 0, var len = input.length; i < len; i++) {
+  for (var i = 0, len = input.length; i < len; i++) {
     var char = input[i];
     switch (char) {
       case '(':
