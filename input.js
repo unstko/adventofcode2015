@@ -5,24 +5,23 @@ function readSingleFile(e) {
   }
   var reader = new FileReader();
   reader.onload = function(e) {
-    var contents = e.target.result;
-    displayContents(contents);
-    loadScript(file.name);
+    var content = e.target.result;
+    displayContents(content);
+    loadScript(file.name, content);
   };
   reader.readAsText(file);
 }
 
-function displayContents(contents) {
+function displayContents(content) {
   var element = document.getElementById('file-content');
-  element.innerHTML = contents;
+  element.innerHTML = content;
 }
 
-function loadScript(name) {
+function loadScript(name, content) {
   var script = document.createElement('script');
   script.src = name.substr(0, name.lastIndexOf(".")) + ".js";
   script.onload = function() {
-    var input = document.getElementById('file-content').innerHTML;
-    calc(input);
+    calc(content);
   };
   document.head.appendChild(script);
 }
